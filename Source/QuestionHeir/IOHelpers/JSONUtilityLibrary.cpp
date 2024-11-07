@@ -174,5 +174,6 @@ TArray<FQuestionStruct> UJSONUtilityLibrary::GetDataFromJson()
             UE_LOG(LogTemp, Warning, TEXT("File open operation canceled or no file selected"));
         }
     }
+    UE_LOG(LogTemp, Error, TEXT("Questions Loaded Successfully!"));
     return QuestionArray;
 }
