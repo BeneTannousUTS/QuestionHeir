@@ -32,6 +32,24 @@ struct FQuestionStruct
 	
 };
 
+USTRUCT(BlueprintType)
+struct FAnsweredQuestionStruct
+{
+	GENERATED_BODY()
+	
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="AnsweredQuestion")
+	FText QuestionText;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="AnsweredQuestion")
+	FText Answer;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="AnsweredQuestion")
+	float TimeTakenToAnswer;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="AnsweredQuestion")
+	int IncorrectAttempts;
+};
+
 /**
  * 
  */
