@@ -1,25 +1,67 @@
 {
-	"Questions": [
-		{
-			"questionText": "1",
-			"answers": [
-				{
-					"answer": "2",
-					"isCorrect": true
-				},
-				{
-					"answer": "3",
-					"isCorrect": false
-				},
-				{
-					"answer": "4",
-					"isCorrect": false
-				},
-				{
-					"answer": "5",
-					"isCorrect": false
-				}
-			]
-		}
-	]
+    "Questions": [
+        {
+            "questionText": "What is the capital of France?",
+            "answers": [
+                {
+                    "answer": "Paris",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "London",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Berlin",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Madrid",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "questionText": "What is 2 + 2?",
+            "answers": [
+                {
+                    "answer": "3",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "4",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "5",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "6",
+                    "isCorrect": false
+                }
+            ]
+        },
+        {
+            "questionText": "Which planet is known as the Red Planet?",
+            "answers": [
+                {
+                    "answer": "Earth",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Mars",
+                    "isCorrect": true
+                },
+                {
+                    "answer": "Jupiter",
+                    "isCorrect": false
+                },
+                {
+                    "answer": "Venus",
+                    "isCorrect": false
+                }
+            ]
+        }
+    ]
 }
