@@ -85,6 +85,80 @@ FString UJSONUtilityLibrary::ConvertStructToJson(const FQuestionStruct& Question
 	return ""; // If conversion failed
 }
 
+void UJSONUtilityLibrary::SaveAnsweredDataToJson(const TArray<FAnsweredQuestionStruct>& AnsweredQuestion)
+{
+    FString SaveFilePath;
+
+    // Create a desktop platform instance
+    IDesktopPlatform* DesktopPlatform = FDesktopPlatformModule::Get();
+    if (DesktopPlatform)
+    {
+        // Setup file types and dialog settings
+        FString DefaultPath = FPaths::ProjectDir();
+        FString FileTypes = TEXT("JSON files (*.json)|*.json");
+        FString DefaultFileName = TEXT("Answered.json");
+
+        // Open the file save dialog
+        TArray<FString> OutFilenames;
+        bool bFileSelected = DesktopPlatform->SaveFileDialog(
+            FSlateApplication::Get().FindBestParentWindowHandleForDialogs(nullptr),
+            TEXT("Save your answers as JSON"),
+            DefaultPath,
+            DefaultFileName,
+            FileTypes,
+            EFileDialogFlags::None,
+            OutFilenames
+        );
+
+        if (bFileSelected && OutFilenames.Num() > 0)
+        {
+            SaveFilePath = OutFilenames[0];
+        }
+        else
+        {
+            UE_LOG(LogTemp, Warning, TEXT("File save operation canceled"));
+            return; // Exit if no file was selected
+        }
+    }
+
+    // Prepare the JSON array to hold each question as a JSON object
+    TSharedPtr<FJsonObject> JsonRootObject = MakeShareable(new FJsonObject());
+    TArray<TSharedPtr<FJsonValue>> JsonArray;
+
+    for (const FAnsweredQuestionStruct& Answered : AnsweredQuestion)
+    {
+        FString AnsweredJsonString = UJSONUtilityLibrary::ConvertStructToJson(Answered);
+        TSharedRef<TJsonReader<>> JsonReader = TJsonReaderFactory<>::Create(AnsweredJsonString);
+        TSharedPtr<FJsonObject> JsonAnsweredObject = MakeShareable(new FJsonObject());
+        if (FJsonSerializer::Deserialize(JsonReader, JsonAnsweredObject))
+        {
+            JsonArray.Add(MakeShareable(new FJsonValueObject(JsonAnsweredObject)));
+        }
+    }
+
+    JsonRootObject->SetArrayField(TEXT("Answers"), JsonArray);
+
+    // Convert the root object to a JSON string
+    FString JsonOutput;
+    TSharedRef<TJsonWriter<>> Writer = TJsonWriterFactory<>::Create(&JsonOutput);
+    FJsonSerializer::Serialize(JsonRootObject.ToSharedRef(), Writer);
+
+    // Save the JSON string to the selected file
+    FFileHelper::SaveStringToFile(JsonOutput, *SaveFilePath);
+}
+
+FString UJSONUtilityLibrary::ConvertStructToJson(const FAnsweredQuestionStruct& AnsweredQuestionStruct)
+{
+    FString OutputString;
+   
+    if (FJsonObjectConverter::UStructToJsonObjectString(AnsweredQuestionStruct, OutputString))
+    {
+        return OutputString; // Success: Returns the JSON string
+    }
+
+    return ""; // If conversion failed
+}
+
 TArray<FQuestionStruct> UJSONUtilityLibrary::GetDataFromJson()
 {
     TArray<FQuestionStruct> QuestionArray;

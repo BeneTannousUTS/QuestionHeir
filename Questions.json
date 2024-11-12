@@ -1,67 +1,88 @@
 {
-    "Questions": [
-        {
-            "questionText": "What is the capital of France?",
-            "answers": [
-                {
-                    "answer": "Paris",
-                    "isCorrect": true
-                },
-                {
-                    "answer": "London",
-                    "isCorrect": false
-                },
-                {
-                    "answer": "Berlin",
-                    "isCorrect": false
-                },
-                {
-                    "answer": "Madrid",
-                    "isCorrect": false
-                }
-            ]
-        },
-        {
-            "questionText": "What is 2 + 2?",
-            "answers": [
-                {
-                    "answer": "3",
-                    "isCorrect": false
-                },
-                {
-                    "answer": "4",
-                    "isCorrect": true
-                },
-                {
-                    "answer": "5",
-                    "isCorrect": false
-                },
-                {
-                    "answer": "6",
-                    "isCorrect": false
-                }
-            ]
-        },
-        {
-            "questionText": "Which planet is known as the Red Planet?",
-            "answers": [
-                {
-                    "answer": "Earth",
-                    "isCorrect": false
-                },
-                {
-                    "answer": "Mars",
-                    "isCorrect": true
-                },
-                {
-                    "answer": "Jupiter",
-                    "isCorrect": false
-                },
-                {
-                    "answer": "Venus",
-                    "isCorrect": false
-                }
-            ]
-        }
-    ]
+	"Questions": [
+		{
+			"questionText": "2 x 2 = ?",
+			"answers": [
+				{
+					"answer": "1",
+					"isCorrect": false
+				},
+				{
+					"answer": "2",
+					"isCorrect": false
+				},
+				{
+					"answer": "3",
+					"isCorrect": false
+				},
+				{
+					"answer": "4",
+					"isCorrect": true
+				}
+			]
+		},
+		{
+			"questionText": "3 x 5 = ?",
+			"answers": [
+				{
+					"answer": "5",
+					"isCorrect": false
+				},
+				{
+					"answer": "10",
+					"isCorrect": false
+				},
+				{
+					"answer": "15",
+					"isCorrect": true
+				},
+				{
+					"answer": "20",
+					"isCorrect": false
+				}
+			]
+		},
+		{
+			"questionText": "12 x 9 = ?",
+			"answers": [
+				{
+					"answer": "99",
+					"isCorrect": false
+				},
+				{
+					"answer": "108",
+					"isCorrect": true
+				},
+				{
+					"answer": "118",
+					"isCorrect": false
+				},
+				{
+					"answer": "129",
+					"isCorrect": false
+				}
+			]
+		},
+		{
+			"questionText": "6 x 4 = ?",
+			"answers": [
+				{
+					"answer": "24",
+					"isCorrect": true
+				},
+				{
+					"answer": "60",
+					"isCorrect": false
+				},
+				{
+					"answer": "42",
+					"isCorrect": false
+				},
+				{
+					"answer": "64",
+					"isCorrect": false
+				}
+			]
+		}
+	]
 }

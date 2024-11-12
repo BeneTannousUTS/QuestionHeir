@@ -63,6 +63,10 @@ public:
 	static void SaveDataToJson(const TArray<FQuestionStruct>& Questions);
 	static FString ConvertStructToJson(const FQuestionStruct& QuestionStruct);
 
+	UFUNCTION(BlueprintCallable, Category="JSON")
+	static void SaveAnsweredDataToJson(const TArray<FAnsweredQuestionStruct>& AnsweredQuestion);
+	static FString ConvertStructToJson(const FAnsweredQuestionStruct& AnsweredQuestionStruct);
+
 	//Read the Json file and return an array of QuestionStructs
 	UFUNCTION(BlueprintCallable, Category="JSON")
 	static TArray<FQuestionStruct> GetDataFromJson();
